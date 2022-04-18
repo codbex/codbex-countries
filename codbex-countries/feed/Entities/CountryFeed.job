@@ -1,0 +1,5 @@
+{
+	"expression": "0 0 0 1 * ? *",
+	"handler": "codbex-countries/feed/Entities/CountryFeedSynchronizer.js",
+	"description": "CountryFeedSynchronizer Job"
+}

@@ -1,0 +1,100 @@
+{
+    "model": {
+        "entities": [
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "COUNTRY_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "255",
+                        "dataName": "COUNTRY_NAME",
+                        "dataNullable": "false",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "true",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "2",
+                        "dataName": "COUNTRY_CODE2",
+                        "dataNullable": "false",
+                        "dataPrimaryKey": "false",
+                        "dataType": "CHAR",
+                        "dataUnique": "true",
+                        "isCalculatedProperty": "false",
+                        "name": "Code2",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "3",
+                        "dataName": "COUNTRY_CODE3",
+                        "dataNullable": "false",
+                        "dataPrimaryKey": "false",
+                        "dataType": "CHAR",
+                        "dataUnique": "true",
+                        "isCalculatedProperty": "false",
+                        "name": "Code3",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "3",
+                        "dataName": "COUNTRY_NUMERIC",
+                        "dataNullable": "false",
+                        "dataPrimaryKey": "false",
+                        "dataType": "CHAR",
+                        "dataUnique": "true",
+                        "isCalculatedProperty": "false",
+                        "name": "Numeric",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM CODBEX_COUNTRY",
+                "dataName": "CODBEX_COUNTRY",
+                "dataQuery": "",
+                "icon": "globe",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "country",
+                "menuLabel": "Country",
+                "name": "Country",
+                "perspectiveIcon": "gears",
+                "perspectiveName": "Entities",
+                "perspectiveOrder": "900",
+                "title": "Country",
+                "tooltip": "Country",
+                "type": "PRIMARY"
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "table": "CODBEX_COUNTRY",
+    "schema": "PUBLIC",
+    "file": "/codbex-countries/countries.csv",
+    "header": true,
+    "useHeaderNames": true,
+    "delimField": ",",
+    "delimEnclosing": "\"",
+    "distinguishEmptyFromNull": true,
+    "keys": []
+  }
+]
