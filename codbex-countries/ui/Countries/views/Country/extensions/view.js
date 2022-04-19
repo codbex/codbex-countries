@@ -16,6 +16,6 @@ exports.getView = function(relativePath) {
 		order: 100,
 		factory: "frame",
 		// region: "center-bottom",
-		link: relativePath + "services/v4/web/codbex-countries/ui/Nomenclature/views/Country/index.html"
+		link: relativePath + "services/v4/web/codbex-countries/ui/Countries/views/Country/index.html"
 	};
 };

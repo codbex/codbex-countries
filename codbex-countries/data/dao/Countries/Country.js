@@ -96,5 +96,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("codbex-countries/Nomenclature/Country/" + operation).send(JSON.stringify(data));
+	producer.queue("codbex-countries/Countries/Country/" + operation).send(JSON.stringify(data));
 }

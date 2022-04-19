@@ -1,0 +1,5 @@
+{
+	"description": "Country view",
+	"extensionPoint": "launchpad-codbex-Countries-view",
+	"module": "codbex-countries/ui/Countries/views/Country/extensions/view.js"
+}

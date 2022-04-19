@@ -1,0 +1,5 @@
+{
+	"description": "Countries perspective",
+	"extensionPoint": "launchpad-codbex-perspective",
+	"module": "codbex-countries/ui/Countries/extensions/perspective/perspective.js"
+}

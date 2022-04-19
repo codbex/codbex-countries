@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>codbex | Nomenclature</title>
+    <title>codbex | Countries</title>
 
 	<!-- jQuery -->
 	<script type="text/javascript" src="/webjars/jquery/3.6.0/jquery.min.js"></script>
@@ -53,7 +53,7 @@
 
 	<div class="shell">
 		<div class="sidebar list-group" sidebar active="Workbench"></div>
-		<div id="Nomenclature" class="plane" views-layout views-layout-model="layoutModel" views-extension-point="launchpad-codbex-Nomenclature-view""></div>
+		<div id="Countries" class="plane" views-layout views-layout-model="layoutModel" views-extension-point="launchpad-codbex-Countries-view""></div>
 	</div>
 	<!-- div class="statusbar" status-bar>${message}</div -->
 
@@ -92,7 +92,7 @@
 				}
 			};
 
-			$http.get('/services/v4/js/codbex-launchpad/api/launchpad/views.js?extensionPoint=launchpad-codbex-Nomenclature-view&pathSegments=6')
+			$http.get('/services/v4/js/codbex-launchpad/api/launchpad/views.js?extensionPoint=launchpad-codbex-Countries-view&pathSegments=6')
 			.then(function(views) {
 				for (var i = 0 ; i < views.data.length; i ++) {
 					$scope.layoutModel.views.push(views.data[i].id);

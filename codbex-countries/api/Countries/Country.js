@@ -1,5 +1,5 @@
 var rs = require("http/v4/rs");
-var dao = require("codbex-countries/data/dao/Nomenclature/Country");
+var dao = require("codbex-countries/data/dao/Countries/Country");
 var http = require("codbex-countries/api/http");
 
 rs.service()

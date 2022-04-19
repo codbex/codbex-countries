@@ -10,9 +10,9 @@
 
 exports.getPerspective = function(relativePath) {
 	return {
-		name: "Nomenclature",
-		image: "gears",
-		link: relativePath + "services/v4/web/codbex-countries/ui/Nomenclature/index.html",
+		name: "Countries",
+		image: "globe",
+		link: relativePath + "services/v4/web/codbex-countries/ui/Countries/index.html",
 		order: 900,
 	};
 };

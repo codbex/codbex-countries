@@ -1,5 +1,0 @@
-{
-	"description": "Nomenclature tiles",
-	"extensionPoint": "launchpad-codbex-tiles",
-	"module": "codbex-countries/ui/Nomenclature/views/Country/extensions/tile/tile.js"
-}
