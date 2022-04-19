@@ -1,5 +1,0 @@
-{
-	"description": "Entities perspective",
-	"extensionPoint": "launchpad-codbex-perspective",
-	"module": "codbex-countries/ui/Entities/extensions/perspective/perspective.js"
-}

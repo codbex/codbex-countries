@@ -24,7 +24,7 @@ angular.module('page')
 	var messageHub = new FramesMessageHub();
 
 	var message = function(evtName, data){
-		messageHub.post({data: data}, 'codbex-launchpad.Entities.Country.' + evtName);
+		messageHub.post({data: data}, 'codbex-launchpad.Nomenclature.Country.' + evtName);
 	};
 
 	var on = function(topic, callback){
@@ -35,7 +35,7 @@ angular.module('page')
 		message: message,
 		on: on,
 		onEntityRefresh: function(callback) {
-			on('codbex-launchpad.Entities.Country.refresh', callback);
+			on('codbex-launchpad.Nomenclature.Country.refresh', callback);
 		},
 		messageEntityModified: function() {
 			message('modified');
@@ -44,7 +44,7 @@ angular.module('page')
 }])
 .controller('PageController', function ($scope, $http, $messageHub) {
 
-	var api = '../../../../../../../../services/v4/js/codbex-countries/api/Entities/Country.js';
+	var api = '../../../../../../../../services/v4/js/codbex-countries/api/Nomenclature/Country.js';
 
 	$scope.dateOptions = {
 		startingDay: 1

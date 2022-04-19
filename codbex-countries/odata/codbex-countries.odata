@@ -1,5 +1,5 @@
 {
-    "namespace": "codbex.countries",
+    "namespace": "codbex",
     "entities": [
         {
             "name": "Country",

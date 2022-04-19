@@ -8,20 +8,20 @@
  * SAP - initial API and implementation
  */
 
-var dao = require("codbex-countries/data/dao/Entities/Country.js")
+var dao = require("codbex-countries/data/dao/Nomenclature/Country.js")
 
 exports.getTile = function(relativePath) {
 	let count = "n/a";
 	try {
 		count = dao.customDataCount();	
 	} catch (e) {
-		console.error("Error occured while involking 'codbex-countries/data/dao/Entities/Country.customDataCount()': " + e);
+		console.error("Error occured while involking 'codbex-countries/data/dao/Nomenclature/Country.customDataCount()': " + e);
 	}
 	return {
 		name: "Country",
-		group: "Entities",
+		group: "Nomenclature",
 		icon: "globe",
-		location: relativePath + "services/v4/web/codbex-countries/ui/Entities/index.html",
+		location: relativePath + "services/v4/web/codbex-countries/ui/Nomenclature/index.html",
 		count: count,
 		order: "900"
 	};

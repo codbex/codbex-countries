@@ -1,0 +1,5 @@
+{
+	"description": "Nomenclature perspective",
+	"extensionPoint": "launchpad-codbex-perspective",
+	"module": "codbex-countries/ui/Nomenclature/extensions/perspective/perspective.js"
+}

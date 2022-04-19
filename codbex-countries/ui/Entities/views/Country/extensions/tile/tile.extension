@@ -1,5 +1,0 @@
-{
-	"description": "Entities tiles",
-	"extensionPoint": "launchpad-codbex-tiles",
-	"module": "codbex-countries/ui/Entities/views/Country/extensions/tile/tile.js"
-}

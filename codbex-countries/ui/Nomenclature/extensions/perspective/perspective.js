@@ -8,14 +8,11 @@
  * SAP - initial API and implementation
  */
 
-exports.getView = function(relativePath) {
+exports.getPerspective = function(relativePath) {
 	return {
-		id: "Country",
-		name: "Country",
-		label: "Country",
-		order: 100,
-		factory: "frame",
-		// region: "center-bottom",
-		link: relativePath + "services/v4/web/codbex-countries/ui/Entities/views/Country/index.html"
+		name: "Nomenclature",
+		image: "gears",
+		link: relativePath + "services/v4/web/codbex-countries/ui/Nomenclature/index.html",
+		order: 900,
 	};
 };

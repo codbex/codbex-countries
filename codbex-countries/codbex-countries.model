@@ -89,7 +89,7 @@
                 "menuLabel": "Country",
                 "name": "Country",
                 "perspectiveIcon": "gears",
-                "perspectiveName": "Entities",
+                "perspectiveName": "Nomenclature",
                 "perspectiveOrder": "900",
                 "title": "Country",
                 "tooltip": "Country",
