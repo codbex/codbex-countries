@@ -23,6 +23,6 @@ exports.getTile = function(relativePath) {
 		icon: "globe",
 		location: relativePath + "services/v4/web/codbex-countries/ui/Countries/index.html",
 		count: count,
-		order: "900"
+		order: "990"
 	};
 };

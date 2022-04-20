@@ -13,6 +13,6 @@ exports.getPerspective = function(relativePath) {
 		name: "Countries",
 		image: "globe",
 		link: relativePath + "services/v4/web/codbex-countries/ui/Countries/index.html",
-		order: 900,
+		order: 990,
 	};
 };

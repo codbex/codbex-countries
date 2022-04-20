@@ -90,7 +90,7 @@
                 "name": "Country",
                 "perspectiveIcon": "globe",
                 "perspectiveName": "Countries",
-                "perspectiveOrder": "900",
+                "perspectiveOrder": "990",
                 "title": "Country",
                 "tooltip": "Country",
                 "type": "PRIMARY"
