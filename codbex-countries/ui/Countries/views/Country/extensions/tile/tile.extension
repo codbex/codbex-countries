@@ -1,5 +1,0 @@
-{
-	"description": "Countries tiles",
-	"extensionPoint": "launchpad-codbex-tiles",
-	"module": "codbex-countries/ui/Countries/views/Country/extensions/tile/tile.js"
-}

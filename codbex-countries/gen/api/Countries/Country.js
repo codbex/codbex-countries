@@ -1,6 +1,6 @@
 var rs = require("http/v4/rs");
-var dao = require("codbex-countries/data/dao/Countries/Country");
-var http = require("codbex-countries/api/http");
+var dao = require("codbex-countries/gen/dao/Countries/Country");
+var http = require("codbex-countries/gen/api/utils/http");
 
 rs.service()
 	.resource("")
@@ -60,7 +60,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			var entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/v4/js/codbex-countries/api/Country.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/v4/js/codbex-countries/gen/api/Country.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
