@@ -1,5 +1,0 @@
-{
-	"description": "Country menu",
-	"extensionPoint": "shell-codbex-countries-menu",
-	"module": "codbex-countries/views/Country/menu/item.js"
-}

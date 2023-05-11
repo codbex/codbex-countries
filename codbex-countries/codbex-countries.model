@@ -79,8 +79,9 @@
                         "widgetType": "TEXTBOX"
                     }
                 ],
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM CODBEX_COUNTRY",
-                "dataName": "CODBEX_COUNTRY",
+                "caption": "Manage entity Country",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_COUNTRY\"",
+                "dataName": "COUNTRY",
                 "dataQuery": "",
                 "icon": "globe",
                 "layoutType": "MANAGE",
@@ -88,13 +89,23 @@
                 "menuKey": "country",
                 "menuLabel": "Country",
                 "name": "Country",
-                "perspectiveIcon": "globe",
-                "perspectiveName": "Countries",
-                "perspectiveOrder": "990",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/globe.svg",
+                "perspectiveName": "countries",
+                "perspectiveOrder": "100",
                 "title": "Country",
                 "tooltip": "Country",
                 "type": "PRIMARY"
             }
-        ]
+        ],
+        "perspectives": [
+            {
+                "name": "countries",
+                "label": "Countries",
+                "icon": "/services/web/resources/unicons/globe.svg",
+                "order": "100"
+            }
+        ],
+        "navigations": []
     }
 }
