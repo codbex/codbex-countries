@@ -2,7 +2,7 @@
   "tablePrefix": "CODBEX",
   "brand": "codbex",
   "brandUrl": "https://codbex.com",
-  "title": "Countries Management Module",
+  "title": "Countries Management Application",
   "description": "Managing countries data",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
