@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-countries.countries.Country';
+		messageHubProvider.eventIdPrefix = 'codbex-countries.Countries.Country';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-countries/gen/api/countries/Country.js";
+		entityApiProvider.baseUrl = "/services/js/codbex-countries/gen/api/Countries/Country.js";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

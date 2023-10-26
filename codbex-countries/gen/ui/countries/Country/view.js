@@ -8,7 +8,8 @@ const viewData = {
     label: "Country",
     factory: "frame",
     region: "center",
-    link: "/services/web/codbex-countries/gen/ui/countries/Country/index.html",
+    link: "/services/web/codbex-countries/gen/ui/Countries/Country/index.html",
+    perspectiveName: "Countries"
 };
 
 if (typeof exports !== 'undefined') {

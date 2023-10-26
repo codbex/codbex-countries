@@ -47,9 +47,12 @@
                     dialogWindows: "codbex-countries-dialog-window"
                 })
                 .controller('ApplicationController', ["$scope", "messageHub", function ($scope, messageHub) {
+                    const httpRequest = new XMLHttpRequest();
+                    httpRequest.open("GET", "/services/js/resources-core/services/views.js?extensionPoint=codbex-countries-view", false);
+                    httpRequest.send();
 
                     $scope.layoutModel = {
-                        views: ['Country']
+                        views: JSON.parse(httpRequest.responseText).filter(e => !e.isLaunchpad && e.perspectiveName === "Countries").map(e => e.id)
                     };
 
                 }]);

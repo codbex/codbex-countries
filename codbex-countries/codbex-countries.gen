@@ -7,13 +7,14 @@
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
+  "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "countries": {
+    "Countries": {
       "views": [
         "Country"
       ],
-      "name": "countries",
-      "label": "countries",
+      "name": "Countries",
+      "label": "Countries",
       "order": "100",
       "icon": "/services/web/resources/unicons/globe.svg"
     }
@@ -132,7 +133,7 @@
       "name": "Country",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/globe.svg",
-      "perspectiveName": "countries",
+      "perspectiveName": "Countries",
       "perspectiveOrder": "100",
       "title": "Country",
       "tooltip": "Country",

@@ -6,7 +6,8 @@
 const viewData = {
     id: "Country-details",
     label: "Country",
-    link: "/services/web/codbex-countries/gen/ui/countries/Country/dialog-window/index.html"
+    link: "/services/web/codbex-countries/gen/ui/Countries/Country/dialog-window/index.html",
+    perspectiveName: "Countries"
 };
 
 if (typeof exports !== 'undefined') {

@@ -9,6 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-countries/gen/ui/launchpad/Home/index.html",
+    isLaunchpad: true,
 };
 
 if (typeof exports !== 'undefined') {

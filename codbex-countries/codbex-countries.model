@@ -91,7 +91,7 @@
                 "name": "Country",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/globe.svg",
-                "perspectiveName": "countries",
+                "perspectiveName": "Countries",
                 "perspectiveOrder": "100",
                 "title": "Country",
                 "tooltip": "Country",
@@ -100,7 +100,7 @@
         ],
         "perspectives": [
             {
-                "name": "countries",
+                "name": "Countries",
                 "label": "Countries",
                 "icon": "/services/web/resources/unicons/globe.svg",
                 "order": "100"
