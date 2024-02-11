@@ -1,5 +1,5 @@
 {
-  "tablePrefix": "CODBEX",
+  "tablePrefix": "CODBEX_",
   "brand": "codbex",
   "brandUrl": "https://codbex.com",
   "title": "Countries Management Application",
@@ -38,6 +38,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
           "widgetLabel": "Id",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -56,6 +58,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Name",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -76,6 +80,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Code2",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 2,
           "inputRule": ""
@@ -96,6 +102,8 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Code3",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 3,
           "inputRule": ""
@@ -116,13 +124,15 @@
           "widgetType": "TEXTBOX",
           "dataNotNull": true,
           "widgetLabel": "Numeric",
+          "dataTypeJava": "string",
+          "dataTypeTypescript": "string",
           "minLength": 0,
           "maxLength": 3,
           "inputRule": ""
         }
       ],
       "caption": "Manage entity Country",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_COUNTRY\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__COUNTRY\"",
       "dataName": "COUNTRY",
       "dataQuery": "",
       "icon": "globe",
