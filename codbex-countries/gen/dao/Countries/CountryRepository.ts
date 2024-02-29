@@ -205,11 +205,11 @@ export class CountryRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: CountryEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: CountryEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__COUNTRY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -230,6 +230,6 @@ export class CountryRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-countries/Countries/Country").send(JSON.stringify(data));
+        producer.topic("codbex-countries/Countries/Country").send(JSON.stringify(data));
     }
 }

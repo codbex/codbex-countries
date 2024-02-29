@@ -26,12 +26,12 @@
             </div>
 
             <fd-fieldset class="fd-margin--md" ng-form="forms.details">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                <fd-form-group dg-header="Country Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--4 fd-col--6">
+                        <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
 	                            <fd-input id="idName"
 	                                name="Name"
@@ -53,7 +53,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCode2" dg-required="false" dg-colon="true">Code2</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--2 fd-col--3">
+                        <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Code2'].$valid }}">
 	                            <fd-input id="idCode2"
 	                                name="Code2"
@@ -75,7 +75,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCode3" dg-required="false" dg-colon="true">Code3</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--2 fd-col--3">
+                        <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Code3'].$valid }}">
 	                            <fd-input id="idCode3"
 	                                name="Code3"
@@ -97,7 +97,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idNumeric" dg-required="false" dg-colon="true">Numeric</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--2 fd-col--3">
+                        <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Numeric'].$valid }}">
 	                            <fd-input id="idNumeric"
 	                                name="Numeric"
@@ -122,8 +122,12 @@
         <footer class="fd-dialog__footer fd-bar fd-bar--footer" ng-show="action !== 'select'">
             <div class="fd-bar__right">
                 <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="emphasized"
-                    dg-label="{{action === 'create' ? 'Create' : 'Update'}}"
-                    ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled'  }}">
+                    dg-label="Filter"
+                    ng-click="filter()">
+                </fd-button>
+                <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="transparent"
+                    dg-label="Reset"
+                    ng-click="resetFilter()">
                 </fd-button>
                 <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
                     ng-click="cancel()"></fd-button>
