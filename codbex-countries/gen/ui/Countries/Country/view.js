@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-countries/gen/ui/Countries/Country/index.html",
-    perspectiveName: "Countries"
+    perspectiveName: "Countries",
 };
 
 if (typeof exports !== 'undefined') {

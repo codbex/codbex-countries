@@ -7,7 +7,7 @@ const viewData = {
     id: "Country-filter",
     label: "Country Filter",
     link: "/services/web/codbex-countries/gen/ui/Countries/Country/dialog-filter/index.html",
-    perspectiveName: "Countries"
+    perspectiveName: "Countries",
 };
 
 if (typeof exports !== 'undefined') {

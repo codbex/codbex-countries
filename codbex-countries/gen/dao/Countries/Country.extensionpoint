@@ -1,1 +1,4 @@
-{"location":"codbex-countries/gen/dao/Countries/Country.extensionpoint","name":"codbex-countries/Countries/Country","description":"Extension Point for codbex-countries Countries Country"}
+{
+    "name": "codbex-countries-Countries-Country",
+    "description": "Extension Point for the codbex-countries-Countries-Country entity"
+}
