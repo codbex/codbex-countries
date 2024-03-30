@@ -133,7 +133,7 @@ export class CountryRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(CountryRepository.DEFINITION, null, dataSource);
     }
 
@@ -230,6 +230,6 @@ export class CountryRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-countries/Countries/Country").send(JSON.stringify(data));
+        producer.topic("codbex-countries-Countries-Country").send(JSON.stringify(data));
     }
 }

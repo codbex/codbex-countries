@@ -2,12 +2,13 @@
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
   "brandUrl": "https://codbex.com",
-  "title": "Countries Management Application",
+  "title": "Countries Management Module",
   "description": "Managing countries data",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
   "templateId": "template-application-angular/template/template.js",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Countries": {
       "views": [
@@ -177,6 +178,7 @@
       "title": "Country",
       "tooltip": "Country",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
