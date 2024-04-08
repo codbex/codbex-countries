@@ -5,38 +5,38 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-countries/gen/api/Countries/CountryService.ts";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataLimit = 20;
 
 		//-----------------Custom Actions-------------------//
-		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-countries-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "Countries" && e.view === "Country" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "Countries" && e.view === "Country" && e.type === "entity");
+		Extensions.get('dialogWindow', 'codbex-countries-custom-action').then(function (response) {
+			$scope.pageActions = response.filter(e => e.perspective === "Countries" && e.view === "Country" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "Countries" && e.view === "Country" && e.type === "entity");
 		});
 
-		$scope.triggerPageAction = function (actionId) {
-			for (const next of $scope.pageActions) {
-				if (next.id === actionId) {
-					messageHub.showDialogWindow("codbex-countries-custom-action", {
-						src: next.link,
-					});
-					break;
-				}
-			}
+		$scope.triggerPageAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{},
+				null,
+				true,
+				action
+			);
 		};
 
-		$scope.triggerEntityAction = function (actionId, selectedEntity) {
-			for (const next of $scope.entityActions) {
-				if (next.id === actionId) {
-					messageHub.showDialogWindow("codbex-countries-custom-action", {
-						src: `${next.link}?id=${selectedEntity.Id}`,
-					});
-					break;
-				}
-			}
+		$scope.triggerEntityAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{
+					id: $scope.entity.Id
+				},
+				null,
+				true,
+				action
+			);
 		};
 		//-----------------Custom Actions-------------------//
 

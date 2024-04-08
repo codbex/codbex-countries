@@ -4,11 +4,11 @@
   "brandUrl": "https://codbex.com",
   "title": "Countries Management Module",
   "description": "Managing countries data",
+  "dataSource": "DefaultDB",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
   "templateId": "template-application-angular/template/template.js",
-  "dataSource": "DefaultDB",
   "perspectives": {
     "Countries": {
       "views": [
