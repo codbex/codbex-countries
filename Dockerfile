@@ -1,7 +1,7 @@
 # Docker descriptor for codbex-countries
 # License - http://www.eclipse.org/legal/epl-v20.html
 
-FROM ghcr.io/codbex/codbex-gaia:0.14.0
+FROM ghcr.io/codbex/codbex-gaia:0.15.0
 
 COPY codbex-countries target/dirigible/repository/root/registry/public/codbex-countries
 
