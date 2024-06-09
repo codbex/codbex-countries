@@ -106,7 +106,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_COUNTRY\"",
                 "dataName": "COUNTRY",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "globe",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -115,11 +115,13 @@
                 "name": "Country",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/globe.svg",
+                "perspectiveLabel": "Countries",
                 "perspectiveName": "Countries",
                 "perspectiveOrder": "100",
+                "perspectiveRole": "",
                 "title": "Country",
                 "tooltip": "Country",
-                "type": "PRIMARY"
+                "type": "SETTING"
             }
         ],
         "perspectives": [
@@ -127,7 +129,8 @@
                 "name": "Countries",
                 "label": "Countries",
                 "icon": "/services/web/resources/unicons/globe.svg",
-                "order": "100"
+                "order": "100",
+                "role": {}
             }
         ],
         "navigations": []

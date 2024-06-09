@@ -9,6 +9,7 @@
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
   "templateId": "template-application-angular/template/template.js",
+  "fileName": "codbex-countries",
   "perspectives": {
     "Countries": {
       "views": [
@@ -17,7 +18,8 @@
       "name": "Countries",
       "label": "Countries",
       "order": "100",
-      "icon": "/services/web/resources/unicons/globe.svg"
+      "icon": "/services/web/resources/unicons/globe.svg",
+      "role": ""
     }
   },
   "models": [
@@ -164,7 +166,7 @@
       "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__COUNTRY\"",
       "dataName": "COUNTRY",
       "dataQuery": "",
-      "disableGeneration": "false",
+      "generateReport": "false",
       "icon": "globe",
       "layoutType": "MANAGE",
       "menuIndex": "100",
@@ -173,11 +175,13 @@
       "name": "Country",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/globe.svg",
+      "perspectiveLabel": "Countries",
       "perspectiveName": "Countries",
       "perspectiveOrder": "100",
+      "perspectiveRole": "",
       "title": "Country",
       "tooltip": "Country",
-      "type": "PRIMARY",
+      "type": "SETTING",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [

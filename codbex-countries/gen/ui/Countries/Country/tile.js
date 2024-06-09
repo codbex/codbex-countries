@@ -5,11 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "Countries",
+        group: "codbex-countries",
         name: "Country",
         caption: "Manage entity Country",
         tooltip: "Country",
-        // icon: "file-o",
+        type: "SETTING",
+        report: "false",
+        icon: "globe",
         location: "/services/web/codbex-countries/gen/ui/Countries/index.html",
         order: "100",
         groupOrder: "100",
