@@ -12,13 +12,11 @@ run-name: 'version set to ${{ inputs.release-version }} for release'
 
 jobs:
   main:
-    uses: codbex/codbex-infra/.github/workflows/application-release.yaml@main
+    uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
     with:
-      application-name: codbex-countries
+      packages: codbex-countries,codbex-countries-data
+      packages-build: codbex-countries
       release-version: ${{ inputs.release-version }}
-      release-package: true
-      release-package-locations: codbex-countries,codbex-countries-data
-      release-package-build-locations: codbex-countries
       release-content: |
         ## codbex-countries - ${{ inputs.release-version }}
   
