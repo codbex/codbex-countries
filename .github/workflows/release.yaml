@@ -16,6 +16,9 @@ jobs:
     with:
       application-name: codbex-countries
       release-version: ${{ inputs.release-version }}
+      release-package: true
+      release-package-locations: codbex-countries,codbex-countries-data
+      release-package-build-locations: codbex-countries
       release-content: |
         ## codbex-countries - ${{ inputs.release-version }}
   

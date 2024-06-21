@@ -9,6 +9,7 @@ bin/
 .history/
 .vscode/
 
+.npmrc
 .editorconfig
 .gitattributes
 files
