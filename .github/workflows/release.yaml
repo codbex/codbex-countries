@@ -24,12 +24,11 @@ jobs:
   
         Countries Application Module
   
-        ## Deployment
+        ## Installation
   
         ```
-        docker run --name codbex-countries \
-        --rm -p 8080:8080 -p 8081:8081 \
-        ghcr.io/codbex/codbex-countries:${{ inputs.release-version }}
+        npm install @codbex/codbex-countries@${{ inputs.release-version }}
+        npm install @codbex/codbex-countries-data@${{ inputs.release-version }}
         ```
   
         ## Access points:
