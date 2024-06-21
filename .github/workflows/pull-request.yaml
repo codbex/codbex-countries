@@ -1,4 +1,4 @@
-name: Pull Request - Application
+name: Pull Request - Module
 
 on:
   pull_request:
