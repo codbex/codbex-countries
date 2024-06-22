@@ -7,7 +7,7 @@ version: 2
 
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: "/codbex-countries"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
