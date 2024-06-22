@@ -5,17 +5,29 @@
 
 version: 2
 
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.DEPENDABOT_TOKEN }}
+    replaces-base: true
+
 updates:
   - package-ecosystem: npm
     directory: "/codbex-countries"
+    registries:
+      - npm-github
     schedule:
       interval: daily
     open-pull-requests-limit: 10
     labels:
       - dependencies
 
+
   - package-ecosystem: npm
     directory: "/codbex-countries-data"
+    registries:
+      - npm-github
     schedule:
       interval: daily
     open-pull-requests-limit: 10
