@@ -6,12 +6,10 @@
 version: 2
 
 updates:
-  - package-ecosystem: docker
+  - package-ecosystem: npm
     directory: "/"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
-    commit-message:
-      prefix: "[Docker] "
     labels:
       - dependencies
