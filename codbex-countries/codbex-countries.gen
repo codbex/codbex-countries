@@ -6,11 +6,11 @@
   "description": "Managing countries data",
   "dataSource": "DefaultDB",
   "fileName": "codbex-countries",
+  "genFolderName": "codbex-countries",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
   "templateId": "template-application-angular/template/template.js",
-  "genFolderName": "codbex-countries",
   "perspectives": {
     "Countries": {
       "views": [
