@@ -14,7 +14,6 @@ updates:
     labels:
       - dependencies
 
-
   - package-ecosystem: npm
     directory: "/codbex-countries-data"
     schedule:
