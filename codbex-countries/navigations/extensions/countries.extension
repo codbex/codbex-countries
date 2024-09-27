@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-countries/navigations/services/countries.js",
+    "description": "Employees Navigation"
+}
