@@ -2,7 +2,7 @@ const navigationData = {
     id: 'countries-navigation',
     label: "Countries",
     view: "countries",
-    group: "countries",
+    group: "configurations",
     orderNumber: 1000,
     lazyLoad: true,
     link: "/services/web/codbex-countries/gen/codbex-countries/ui/Countries/index.html?embedded"
