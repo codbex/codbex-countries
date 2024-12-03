@@ -1,9 +1,8 @@
 const navigationData = {
     id: 'countries-navigation',
     label: "Countries",
-    view: "countries",
     group: "reference-data",
-    orderNumber: 400,
+    order: 400,
     link: "/services/web/codbex-countries/gen/codbex-countries/ui/Countries/index.html?embedded"
 };
 
