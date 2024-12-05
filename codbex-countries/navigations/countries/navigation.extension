@@ -1,5 +1,5 @@
 {
     "extensionPoint": "dashboard-navigations",
-    "module": "codbex-countries/navigations/services/countries.js",
+    "module": "codbex-countries/navigations/countries/service.js",
     "description": "Countries Navigation"
 }
