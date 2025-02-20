@@ -1,1 +1,5 @@
-{"module":"codbex-countries/gen/codbex-countries/ui/Countries/perspective.js","extensionPoint":"portal","description":"codbex-countries - Perspective - Countries"}
+{
+    "module": "codbex-countries/gen/codbex-countries/ui/Countries/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-countries - Perspective - Countries"
+}
