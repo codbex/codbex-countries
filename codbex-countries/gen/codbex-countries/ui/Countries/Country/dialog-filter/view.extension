@@ -1,5 +1,5 @@
 {
     "module": "codbex-countries/gen/codbex-countries/ui/Countries/Country/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "codbex-countries-dialog-window",
     "description": "codbex-countries - Application Dialog Window"
 }

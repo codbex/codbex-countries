@@ -55,7 +55,6 @@ angular.module('page', ["ideUI", "ideView"])
 				entity: entity,
 				filter: filter
 			});
-			messageHub.postMessage("clearDetails");
 			$scope.cancel();
 		};
 

@@ -7,7 +7,7 @@ const viewData = {
     id: "Country-details",
     label: "Country",
     link: "/services/web/codbex-countries/gen/codbex-countries/ui/Countries/Country/dialog-window/index.html",
-    perspectiveName: "Countries",
+    perspectiveName: "Countries"
 };
 
 if (typeof exports !== 'undefined') {

@@ -1,1 +1,5 @@
-{"module":"codbex-countries/gen/codbex-countries/ui/Countries/Country/dialog-window/view.js","extensionPoint":"dialog-window","description":"codbex-countries - Application Dialog Window"}
+{
+    "module": "codbex-countries/gen/codbex-countries/ui/Countries/Country/dialog-window/view.js",
+    "extensionPoint": "codbex-countries-dialog-window",
+    "description": "codbex-countries - Application Dialog Window"
+}

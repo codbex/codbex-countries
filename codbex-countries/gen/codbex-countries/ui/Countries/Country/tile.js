@@ -14,6 +14,6 @@ exports.getTile = function () {
         icon: "globe",
         location: "/services/web/codbex-countries/gen/codbex-countries/ui/Countries/index.html",
         order: "100",
-        groupOrder: "100",
+        groupOrder: "100"
     };
-};
+}

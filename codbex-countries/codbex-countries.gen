@@ -14,30 +14,7 @@
   "perspectives": {
     "Countries": {
       "views": [
-        "Country",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details",
-        "Country-details"
+        "Country"
       ],
       "name": "Countries",
       "label": "Countries",
@@ -46,6 +23,7 @@
       "role": ""
     }
   },
+  "roles": [],
   "models": [
     {
       "properties": [
@@ -182,9 +160,10 @@
       "dataName": "COUNTRY",
       "dataQuery": "",
       "description": "Manage entity Country",
+      "generateDefaultRoles": "false",
       "generateReport": "false",
       "icon": "globe",
-      "layoutType": "MANAGE_MASTER",
+      "layoutType": "MANAGE",
       "menuIndex": "100",
       "menuKey": "country",
       "menuLabel": "Country",
@@ -203,115 +182,7 @@
       "primaryKeys": [
         "Id"
       ],
-      "primaryKeysString": "Id",
-      "masterProperties": {
-        "title": {
-          "dataLength": "255",
-          "dataName": "COUNTRY_NAME",
-          "dataNullable": false,
-          "dataType": "VARCHAR",
-          "dataUnique": true,
-          "description": "",
-          "name": "Name",
-          "tooltip": "",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "fd-col-md--4 fd-col--6",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": true,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Name",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 20,
-          "inputRule": ""
-        },
-        "properties": [
-          {
-            "dataLength": "2",
-            "dataName": "COUNTRY_CODE2",
-            "dataNullable": false,
-            "dataType": "CHAR",
-            "dataUnique": true,
-            "description": "",
-            "name": "Code2",
-            "tooltip": "",
-            "widgetIsMajor": true,
-            "widgetLength": "20",
-            "widgetSize": "fd-col-md--2 fd-col--3",
-            "widgetType": "TEXTBOX",
-            "dataNotNull": true,
-            "dataAutoIncrement": false,
-            "dataPrimaryKey": false,
-            "isRequiredProperty": false,
-            "isCalculatedProperty": false,
-            "widgetLabel": "Code2",
-            "widgetDropdownUrl": "",
-            "dataTypeJava": "string",
-            "dataTypeTypescript": "string",
-            "minLength": 0,
-            "maxLength": 2,
-            "inputRule": ""
-          },
-          {
-            "dataLength": "3",
-            "dataName": "COUNTRY_CODE3",
-            "dataNullable": false,
-            "dataType": "CHAR",
-            "dataUnique": true,
-            "description": "",
-            "name": "Code3",
-            "tooltip": "",
-            "widgetIsMajor": true,
-            "widgetLength": "20",
-            "widgetSize": "fd-col-md--2 fd-col--3",
-            "widgetType": "TEXTBOX",
-            "dataNotNull": true,
-            "dataAutoIncrement": false,
-            "dataPrimaryKey": false,
-            "isRequiredProperty": false,
-            "isCalculatedProperty": false,
-            "widgetLabel": "Code3",
-            "widgetDropdownUrl": "",
-            "dataTypeJava": "string",
-            "dataTypeTypescript": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "inputRule": ""
-          },
-          {
-            "dataLength": "3",
-            "dataName": "COUNTRY_NUMERIC",
-            "dataNullable": false,
-            "dataType": "CHAR",
-            "dataUnique": true,
-            "description": "",
-            "name": "Numeric",
-            "tooltip": "",
-            "widgetIsMajor": true,
-            "widgetLength": "20",
-            "widgetSize": "fd-col-md--2 fd-col--3",
-            "widgetType": "TEXTBOX",
-            "dataNotNull": true,
-            "dataAutoIncrement": false,
-            "dataPrimaryKey": false,
-            "isRequiredProperty": false,
-            "isCalculatedProperty": false,
-            "widgetLabel": "Numeric",
-            "widgetDropdownUrl": "",
-            "dataTypeJava": "string",
-            "dataTypeTypescript": "string",
-            "minLength": 0,
-            "maxLength": 3,
-            "inputRule": ""
-          }
-        ]
-      }
+      "primaryKeysString": "Id"
     }
   ]
 }
