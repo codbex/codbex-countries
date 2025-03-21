@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'Countries',
 	name: 'Countries',
 	link: '/services/web/codbex-countries/gen/codbex-countries/ui/Countries/index.html',
-	order: 100,
-	icon: '/services/web/resources/unicons/globe.svg',
+	order: '100',
+	icon: '/services/web/resources/unicons/globe.svg'
 };
 
 if (typeof exports !== 'undefined') {

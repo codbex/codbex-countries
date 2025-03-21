@@ -1,2 +1,10 @@
 [
+    {
+        "name": "codbex-countries.Countries.CountryReadOnly",
+        "description": "A role that grants read only permission for Country."
+    },
+    {
+        "name": "codbex-countries.Countries.CountryFullAccess",
+        "description": "A role that grants full access for Country."
+    }
 ]
