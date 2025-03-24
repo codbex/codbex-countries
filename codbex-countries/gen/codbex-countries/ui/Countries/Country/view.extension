@@ -1,5 +1,6 @@
 {
     "module": "codbex-countries/gen/codbex-countries/ui/Countries/Country/view.js",
     "extensionPoint": "codbex-countries-view",
-    "description": "codbex-countries - Application View"
+    "description": "codbex-countries - Application View",
+    "role": "codbex-countries.Countries.CountryReadOnly,codbex-countries.Countries.CountryFullAccess"
 }

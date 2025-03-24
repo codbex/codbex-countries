@@ -7,6 +7,13 @@
   "dataSource": "DefaultDB",
   "fileName": "codbex-countries",
   "genFolderName": "codbex-countries",
+  "roles": [
+    {
+      "entityName": "Country",
+      "roleRead": "codbex-countries.Countries.CountryReadOnly",
+      "roleWrite": "codbex-countries.Countries.CountryFullAccess"
+    }
+  ],
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
@@ -23,7 +30,6 @@
       "role": ""
     }
   },
-  "roles": [],
   "models": [
     {
       "properties": [
@@ -160,7 +166,7 @@
       "dataName": "COUNTRY",
       "dataQuery": "",
       "description": "Manage entity Country",
-      "generateDefaultRoles": "false",
+      "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "globe",
       "layoutType": "MANAGE",
@@ -174,6 +180,8 @@
       "perspectiveName": "Countries",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
+      "roleRead": "codbex-countries.Countries.CountryReadOnly",
+      "roleWrite": "codbex-countries.Countries.CountryFullAccess",
       "title": "Country",
       "tooltip": "Country",
       "type": "SETTING",

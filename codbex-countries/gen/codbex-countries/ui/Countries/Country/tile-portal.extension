@@ -1,5 +1,6 @@
 {
     "module": "codbex-countries/gen/codbex-countries/ui/Countries/Country/tile.js",
     "extensionPoint": "portal-tile",
-    "description": "codbex-countries - Application Tile"
+    "description": "codbex-countries - Application Tile",
+    "role": "codbex-countries.Countries.CountryReadOnly,codbex-countries.Countries.CountryFullAccess"
 }
