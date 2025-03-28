@@ -2,7 +2,7 @@ const navigationData = {
     id: 'countries-navigation',
     label: "Countries",
     group: "reference data",
-    order: 400,
+    order: 500,
     link: "/services/web/codbex-countries/gen/codbex-countries/ui/Countries/index.html?embedded"
 };
 
