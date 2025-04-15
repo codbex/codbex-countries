@@ -87,11 +87,12 @@
                 "menuKey": "country",
                 "menuLabel": "Country",
                 "name": "Country",
-                "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/globe.svg",
-                "perspectiveLabel": "Countries",
+                "perspectiveHeader": "",
+                "perspectiveIcon": "globe",
+                "perspectiveLabel": "Entities",
                 "perspectiveName": "Countries",
-                "perspectiveOrder": "100",
+                "perspectiveNavId": "",
+                "perspectiveOrder": "990",
                 "perspectiveRole": "",
                 "roleRead": "codbex-countries.Countries.CountryReadOnly",
                 "roleWrite": "codbex-countries.Countries.CountryFullAccess",
@@ -100,15 +101,7 @@
                 "type": "SETTING"
             }
         ],
-        "perspectives": [
-            {
-                "name": "Countries",
-                "label": "Countries",
-                "icon": "/services/web/resources/unicons/globe.svg",
-                "order": "100",
-                "role": {}
-            }
-        ],
+        "perspectives": [],
         "navigations": []
     }
 }
