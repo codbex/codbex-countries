@@ -9,7 +9,7 @@ bin/
 .history/
 .vscode/
 
-.npmrc
+#files
 .editorconfig
 .gitattributes
 files
@@ -25,3 +25,4 @@ derby.log
 *.iml
 *._trace
 *.log
+package-lock.json
