@@ -1,9 +1,14 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts';
 	}])
-	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
+	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'Country successfully created';
+		let propertySuccessfullyUpdated = 'Country successfully updated';
+
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -14,6 +19,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			update: 'Update Country'
 		};
 		$scope.action = 'select';
+
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-countries:codbex-countries-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-countries:codbex-countries-model.defaults.formHeadSelect', { name: '$t(codbex-countries:codbex-countries-model.t.COUNTRY)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-countries:codbex-countries-model.defaults.formHeadCreate', { name: '$t(codbex-countries:codbex-countries-model.t.COUNTRY)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-countries:codbex-countries-model.defaults.formHeadUpdate', { name: '$t(codbex-countries:codbex-countries-model.t.COUNTRY)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-countries:codbex-countries-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-countries:codbex-countries-model.t.COUNTRY)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-countries:codbex-countries-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-countries:codbex-countries-model.t.COUNTRY)' });
+		});
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
@@ -28,16 +42,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-countries.Settings.Country.entityCreated', data: response.data });
-				Dialogs.showAlert({
-					title: 'Country',
-					message: 'Country successfully created',
-					type: AlertTypes.Success
+				Notifications.show({
+					title: LocaleService.t('codbex-countries:codbex-countries-model.t.COUNTRY'),
+					description: propertySuccessfullyCreated,
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to create Country: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-countries:codbex-countries-model.messages.error.unableToCreate', { name: '$t(codbex-countries:codbex-countries-model.t.COUNTRY)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -49,16 +63,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-countries.Settings.Country.entityUpdated', data: response.data });
-				Dialogs.showAlert({
-					title: 'Country',
-					message: 'Country successfully updated',
-					type: AlertTypes.Success
+				Notifications.show({
+					title: LocaleService.t('codbex-countries:codbex-countries-model.t.COUNTRY'),
+					description: propertySuccessfullyUpdated,
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to update Country: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-countries:codbex-countries-model.messages.error.unableToUpdate', { name: '$t(codbex-countries:codbex-countries-model.t.COUNTRY)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -67,7 +81,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,

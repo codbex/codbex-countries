@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Country-details',
     label: 'Country',
+    translation: {
+        key: 'codbex-countries:codbex-countries-model.t.COUNTRY',
+    },
     path: '/services/web/codbex-countries/gen/codbex-countries/ui/Settings/Country/dialog-window/index.html',
     perspectiveName: 'Settings'
 };

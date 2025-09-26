@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Country',
     label: 'Country',
+    translation: {
+        key: 'codbex-countries:codbex-countries-model.t.COUNTRY',
+    },
     region: 'center',
     lazyLoad: true,
 	autoFocusTab: false,

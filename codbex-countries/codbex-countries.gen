@@ -19,12 +19,12 @@
   "filePath": "codbex-countries.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "Countries": {
+    "Settings": {
       "views": [
         "Country"
       ],
-      "name": "Countries",
-      "label": "Countries",
+      "name": "Settings",
+      "label": "Settings",
       "header": "",
       "order": "990",
       "navId": "",
@@ -32,6 +32,7 @@
       "role": ""
     }
   },
+  "tprefix": "codbex-countries-model",
   "models": [
     {
       "properties": [
@@ -174,6 +175,7 @@
       "menuIndex": "100",
       "menuKey": "country",
       "menuLabel": "Country",
+      "multilingual": "true",
       "name": "Country",
       "perspectiveHeader": "",
       "perspectiveIcon": "globe",

@@ -6,6 +6,12 @@
 const viewData = {
     id: 'Country-filter',
     label: 'Country Filter',
+    translation: {
+        key: 'codbex-countries:codbex-countries-model.extName',
+        options: {
+            content: '$t(codbex-countries:codbex-countries-model.t.COUNTRY) $t(codbex-countries:codbex-countries-model.defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-countries/gen/codbex-countries/ui/Settings/Country/dialog-filter/index.html',
     perspectiveName: 'Settings'
 };
