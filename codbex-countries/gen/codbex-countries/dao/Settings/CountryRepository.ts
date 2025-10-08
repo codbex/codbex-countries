@@ -71,7 +71,7 @@ export interface CountryEntityEvent {
     readonly key: {
         name: string;
         column: string;
-        value: number;
+        value: string | number;
     }
 }
 
@@ -144,7 +144,7 @@ export class CountryRepository {
         return entity ?? undefined;
     }
 
-    public create(entity: CountryEntity): number {
+    public create(entity: CountryEntity): string | number {
         const id = store.save('CountryEntity', entity);
         this.triggerEvent({
             operation: "create",
@@ -161,7 +161,7 @@ export class CountryRepository {
 
     public update(entity: CountryEntity): void {
         const previousEntity = this.findById(entity.Id);
-        this.dao.update(entity);
+        store.update('CountryEntity', entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_COUNTRY",
@@ -175,7 +175,7 @@ export class CountryRepository {
         });
     }
 
-    public upsert(entity: CountryEntity): number {
+    public upsert(entity: CountryEntity): string | number {
         const id = entity.Id;
         if (!id) {
             return store.save('CountryEntity', entity);
@@ -206,7 +206,7 @@ export class CountryRepository {
     }
 
     public count(options?: CountryEntityOptions): number {
-        return store.count('CountryEntity', options);
+        return store.count('CountryEntity', { 'conditions': [], 'limit': options?.$limit || 20, 'offset': options?.$offset || 0 });
     }
 
     private async triggerEvent(data: CountryEntityEvent | CountryUpdateEntityEvent) {
