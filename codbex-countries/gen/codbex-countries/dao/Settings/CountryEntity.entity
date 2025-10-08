@@ -1,0 +1,35 @@
+{
+  "entity-mapping" : {
+    "class" : {
+      "entity-name" : "CountryEntity",
+      "table" : "CODBEX_COUNTRY",
+      "id" : {
+        "column" : "COUNTRY_ID",
+        "name" : "Id",
+        "type" : "long",
+        "generator" : {
+          "class" : "sequence"
+        }
+      },
+      "property" : [
+        {
+          "column" : "COUNTRY_NAME",
+          "name" : "Name",
+          "type" : "string"
+        }, {
+          "column" : "COUNTRY_CODE2",
+          "name" : "Code2",
+          "type" : "string"
+        }, {
+          "column" : "COUNTRY_CODE3",
+          "name" : "Code3",
+          "type" : "string"
+        }, {
+          "column" : "COUNTRY_NUMERIC",
+          "name" : "Numeric",
+          "type" : "string"
+        }
+      ]
+    }
+  }
+}
