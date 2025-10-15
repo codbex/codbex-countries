@@ -85,10 +85,16 @@ export class CountryRepository {
 
     public findAll(options: CountryEntityOptions = {}): CountryEntity[] {
         let list = store.list("CountryEntity", { 'conditions': [], 'limit': options.$limit || 20, 'offset': options.$offset || 0 });
-        if (options.$language) {
+        this.translateList(list, options.$language, CountryRepository.TABLE);
+
+        return list;
+    }
+
+    private translateList(list: any[], language: string | undefined, basetTable: string): any[] {
+        if (language) {
             try {
-                let script = sql.getDialect().select().column("*").from('"' + CountryRepository.TABLE + '_LANG"').where('Language = ?').build();
-                const resultSet = query.execute(script, [options.$language]);
+                let script = sql.getDialect().select().column("*").from('"' + basetTable + '_LANG"').where('Language = ?').build();
+                const resultSet = query.execute(script, [language]);
                 if (resultSet !== null && resultSet[0] !== null) {
                     let translatedProperties = Object.getOwnPropertyNames(resultSet[0]);
                     let maps: any[] = [];
@@ -110,7 +116,7 @@ export class CountryRepository {
                     });
                 }
             } catch (Error) {
-                console.error("Entity is marked as language dependent, but no language table present: " + CountryRepository.TABLE);
+                console.error("Entity is marked as language dependent, but no language table present: " + basetTable);
             }
         }
         return list;
@@ -118,10 +124,15 @@ export class CountryRepository {
 
     public findById(id: number, options: CountryEntityOptions = {}): CountryEntity | undefined {
         const entity = store.get("CountryEntity", id);
-        if (entity && options.$language) {
+        this.translateEntity(entity, id, options.$language, CountryRepository.TABLE);
+        return entity ?? undefined;
+    }
+
+    private translateEntity(entity: any, id: string | number, language: string | undefined, basetTable: string): any[] {
+        if (entity && language) {
             try {
-                let script = sql.getDialect().select().column("*").from('"' + CountryRepository.TABLE + '_LANG"').where('Language = ?').where('Id = ?').build();
-                const resultSet = query.execute(script, [options.$language, id]);
+                let script = sql.getDialect().select().column("*").from('"' + basetTable + '_LANG"').where('Language = ?').where('Id = ?').build();
+                const resultSet = query.execute(script, [language, id]);
                 let translatedProperties = Object.getOwnPropertyNames(resultSet[0]);
                 let maps: any[] = [];
                 for (let i = 0; i < translatedProperties.length - 2; i++) {
@@ -138,10 +149,10 @@ export class CountryRepository {
                     }
                 }
             } catch (Error) {
-                console.error("Entity is marked as language dependent, but no language table present: " + CountryRepository.TABLE);
+                console.error("Entity is marked as language dependent, but no language table present: " + basetTable);
             }
         }
-        return entity ?? undefined;
+        return entity;
     }
 
     public create(entity: CountryEntity): string | number {
