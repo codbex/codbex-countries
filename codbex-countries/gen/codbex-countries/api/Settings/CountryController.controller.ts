@@ -8,7 +8,7 @@ import { HttpUtils } from "sdk/http/utils";
 const validationModules = await Extensions.loadExtensionModules("codbex-countries-Settings-Country", ["validate"]);
 
 @Controller
-class CountryService {
+class CountryController {
 
     private readonly repository = new CountryRepository();
 
@@ -34,7 +34,7 @@ class CountryService {
             this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.controller.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
