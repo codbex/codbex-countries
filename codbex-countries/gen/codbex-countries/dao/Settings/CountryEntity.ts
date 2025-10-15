@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column } from "sdk/data";
+import { Entity, Table, Id, Generated, Column } from "sdk/db";
 
 @Entity("CountryEntity")
 @Table("CODBEX_COUNTRY")

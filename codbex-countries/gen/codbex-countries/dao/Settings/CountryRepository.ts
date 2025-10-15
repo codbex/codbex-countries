@@ -1,8 +1,8 @@
 import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
-import { store } from "sdk/data";
-import { CountryEntity } from "./CountryEntity.entity";
+import { store } from "sdk/db";
+import { CountryEntity } from "./CountryEntity";
 
 export interface CountryEntityOptions {
     $filter?: {
