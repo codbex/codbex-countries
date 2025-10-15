@@ -81,29 +81,27 @@ export interface CountryUpdateEntityEvent extends CountryEntityEvent {
 
 export class CountryRepository {
 
-    private static readonly TABLE = "CODBEX_COUNTRY";
-
     public findAll(options: CountryEntityOptions = {}): CountryEntity[] {
-        let list = store.list("CountryEntity", { 'conditions': [], 'limit': options.$limit || 20, 'offset': options.$offset || 0 });
-        translator.translateList(list, options.$language, CountryRepository.TABLE);
+        let list = store.list(CountryEntity.DEFINITION_ENTITY_NAME, { 'conditions': [], 'limit': options.$limit || 20, 'offset': options.$offset || 0 });
+        translator.translateList(list, options.$language, CountryEntity.DEFINITION_TABLE_NAME);
         return list;
     }
 
     public findById(id: number, options: CountryEntityOptions = {}): CountryEntity | undefined {
-        const entity = store.get("CountryEntity", id);
-        translator.translateEntity(entity, id, options.$language, CountryRepository.TABLE);
+        const entity = store.get(CountryEntity.DEFINITION_ENTITY_NAME, id);
+        translator.translateEntity(entity, id, options.$language, CountryEntity.DEFINITION_TABLE_NAME);
         return entity ?? undefined;
     }
 
     public create(entity: CountryEntity): string | number {
-        const id = store.save('CountryEntity', entity);
+        const id = store.save(CountryEntity.DEFINITION_ENTITY_NAME, entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_COUNTRY",
+            table: CountryEntity.DEFINITION_TABLE_NAME,
             entity: entity,
             key: {
-                name: "Id",
-                column: "COUNTRY_ID",
+                name: CountryEntity.DEFINITION_ID_NAME,
+                column: CountryEntity.DEFINITION_ID_COLUMN,
                 value: id
             }
         });
@@ -112,15 +110,15 @@ export class CountryRepository {
 
     public update(entity: CountryEntity): void {
         const previousEntity = this.findById(entity.Id);
-        store.update('CountryEntity', entity);
+        store.update(CountryEntity.DEFINITION_ENTITY_NAME, entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_COUNTRY",
+            table: CountryEntity.DEFINITION_TABLE_NAME,
             entity: entity,
             previousEntity: previousEntity,
             key: {
-                name: "Id",
-                column: "COUNTRY_ID",
+                name: CountryEntity.DEFINITION_ID_NAME,
+                column: CountryEntity.DEFINITION_ID_COLUMN,
                 value: entity.Id
             }
         });
@@ -129,35 +127,35 @@ export class CountryRepository {
     public upsert(entity: CountryEntity): string | number {
         const id = entity.Id;
         if (!id) {
-            return store.save('CountryEntity', entity);
+            return store.save(CountryEntity.DEFINITION_ENTITY_NAME, entity);
         }
 
-        const existingEntity = store.get('CountryEntity', id);
+        const existingEntity = store.get(CountryEntity.DEFINITION_ENTITY_NAME, id);
         if (existingEntity) {
             this.update(entity);
             return id;
         } else {
-            return store.save('CountryEntity', entity);
+            return store.save(CountryEntity.DEFINITION_ENTITY_NAME, entity);
         }
     }
 
     public deleteById(id: number): void {
-        const entity = store.get('CountryEntity', id);
-        store.remove('CountryEntity', id);
+        const entity = store.get(CountryEntity.DEFINITION_ENTITY_NAME, id);
+        store.remove(CountryEntity.DEFINITION_ENTITY_NAME, id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_COUNTRY",
+            table: CountryEntity.DEFINITION_TABLE_NAME,
             entity: entity,
             key: {
-                name: "Id",
-                column: "COUNTRY_ID",
+                name: CountryEntity.DEFINITION_ID_NAME,
+                column: CountryEntity.DEFINITION_ID_COLUMN,
                 value: id
             }
         });
     }
 
     public count(options?: CountryEntityOptions): number {
-        return store.count('CountryEntity', { 'conditions': [], 'limit': options?.$limit || 20, 'offset': options?.$offset || 0 });
+        return store.count(CountryEntity.DEFINITION_ENTITY_NAME, { 'conditions': [], 'limit': options?.$limit || 20, 'offset': options?.$offset || 0 });
     }
 
     private async triggerEvent(data: CountryEntityEvent | CountryUpdateEntityEvent) {
