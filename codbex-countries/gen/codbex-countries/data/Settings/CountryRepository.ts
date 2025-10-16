@@ -20,14 +20,12 @@ export interface CountryEntityEvent {
 export class CountryRepository {
 
     public findAll(options: Options = {}): CountryEntity[] {
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>> findAll:" + JSON.stringify(options));
         let list = store.list((CountryEntity as EntityConstructor).$entity_name, options);
         translator.translateList(list, options.language, (CountryEntity as EntityConstructor).$table_name);
         return list;
     }
 
     public findById(id: number, options: Options = {}): CountryEntity | undefined {
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>> findById:" + JSON.stringify(options));
         const entity = store.get((CountryEntity as EntityConstructor).$entity_name, id);
         translator.translateEntity(entity, id, options.language, (CountryEntity as EntityConstructor).$table_name);
         return entity ?? undefined;
@@ -95,7 +93,6 @@ export class CountryRepository {
     }
 
     public count(options?: Options): number {
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>> count:" + JSON.stringify(options));
         return store.count((CountryEntity as EntityConstructor).$entity_name, options);
     }
 
