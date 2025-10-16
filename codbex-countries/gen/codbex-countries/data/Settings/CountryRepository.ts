@@ -2,6 +2,7 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { store } from "sdk/db";
 import { translator } from "sdk/db";
+import { EntityConstructor } from "sdk/db";
 import { CountryEntity } from "./CountryEntity";
 
 export interface CountryEntityOptions {
@@ -82,26 +83,26 @@ export interface CountryUpdateEntityEvent extends CountryEntityEvent {
 export class CountryRepository {
 
     public findAll(options: CountryEntityOptions = {}): CountryEntity[] {
-        let list = store.list(CountryEntity.$entity_name, { 'conditions': [], 'limit': options.$limit || 20, 'offset': options.$offset || 0 });
-        translator.translateList(list, options.$language, CountryEntity.$table_name);
+        let list = store.list((CountryEntity as EntityConstructor).$entity_name, { 'conditions': [], 'limit': options.$limit || 20, 'offset': options.$offset || 0 });
+        translator.translateList(list, options.$language, (CountryEntity as EntityConstructor).$table_name);
         return list;
     }
 
     public findById(id: number, options: CountryEntityOptions = {}): CountryEntity | undefined {
-        const entity = store.get(CountryEntity.$entity_name, id);
-        translator.translateEntity(entity, id, options.$language, CountryEntity.$table_name);
+        const entity = store.get((CountryEntity as EntityConstructor).$entity_name, id);
+        translator.translateEntity(entity, id, options.$language, (CountryEntity as EntityConstructor).$table_name);
         return entity ?? undefined;
     }
 
     public create(entity: CountryEntity): string | number {
-        const id = store.save(CountryEntity.$entity_name, entity);
+        const id = store.save((CountryEntity as EntityConstructor).$entity_name, entity);
         this.triggerEvent({
             operation: "create",
-            table: CountryEntity.$table_name,
+            table: (CountryEntity as EntityConstructor).$table_name,
             entity: entity,
             key: {
-                name: CountryEntity.$id_name,
-                column: CountryEntity.$id_column,
+                name: (CountryEntity as EntityConstructor).$id_name,
+                column: (CountryEntity as EntityConstructor).$id_column,
                 value: id
             }
         });
@@ -110,15 +111,15 @@ export class CountryRepository {
 
     public update(entity: CountryEntity): void {
         const previousEntity = this.findById(entity.Id);
-        store.update(CountryEntity.$entity_name, entity);
+        store.update((CountryEntity as EntityConstructor).$entity_name, entity);
         this.triggerEvent({
             operation: "update",
-            table: CountryEntity.$table_name,
+            table: (CountryEntity as EntityConstructor).$table_name,
             entity: entity,
             previousEntity: previousEntity,
             key: {
-                name: CountryEntity.$id_name,
-                column: CountryEntity.$id_column,
+                name: (CountryEntity as EntityConstructor).$id_name,
+                column: (CountryEntity as EntityConstructor).$id_column,
                 value: entity.Id
             }
         });
@@ -127,35 +128,35 @@ export class CountryRepository {
     public upsert(entity: CountryEntity): string | number {
         const id = entity.Id;
         if (!id) {
-            return store.save(CountryEntity.$entity_name, entity);
+            return store.save((CountryEntity as EntityConstructor).$entity_name, entity);
         }
 
-        const existingEntity = store.get(CountryEntity.$entity_name, id);
+        const existingEntity = store.get((CountryEntity as EntityConstructor).$entity_name, id);
         if (existingEntity) {
             this.update(entity);
             return id;
         } else {
-            return store.save(CountryEntity.$entity_name, entity);
+            return store.save((CountryEntity as EntityConstructor).$entity_name, entity);
         }
     }
 
     public deleteById(id: number): void {
-        const entity = store.get(CountryEntity.$entity_name, id);
-        store.remove(CountryEntity.$entity_name, id);
+        const entity = store.get((CountryEntity as EntityConstructor).$entity_name, id);
+        store.remove((CountryEntity as EntityConstructor).$entity_name, id);
         this.triggerEvent({
             operation: "delete",
-            table: CountryEntity.$table_name,
+            table: (CountryEntity as EntityConstructor).$table_name,
             entity: entity,
             key: {
-                name: CountryEntity.$id_name,
-                column: CountryEntity.$id_column,
+                name: (CountryEntity as EntityConstructor).$id_name,
+                column: (CountryEntity as EntityConstructor).$id_column,
                 value: id
             }
         });
     }
 
     public count(options?: CountryEntityOptions): number {
-        return store.count(CountryEntity.$entity_name, { 'conditions': [], 'limit': options?.$limit || 20, 'offset': options?.$offset || 0 });
+        return store.count((CountryEntity as EntityConstructor).$entity_name, { 'conditions': [], 'limit': options?.$limit || 20, 'offset': options?.$offset || 0 });
     }
 
     private async triggerEvent(data: CountryEntityEvent | CountryUpdateEntityEvent) {
