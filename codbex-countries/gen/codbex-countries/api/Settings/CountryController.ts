@@ -1,9 +1,10 @@
 import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { CountryRepository, CountryEntityOptions } from "../../data/Settings/CountryRepository";
 import { user } from "sdk/security"
 import { ForbiddenError, ValidationError } from "sdk/http/errors";
 import { HttpUtils } from "sdk/http/utils";
+import { CountryEntity } from "../../data/Settings/CountryEntity";
+import { CountryRepository, CountryEntityOptions } from "../../data/Settings/CountryRepository";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-countries-Settings-Country", ["validate"]);
 
@@ -13,7 +14,7 @@ class CountryController {
     private readonly repository = new CountryRepository();
 
     @Get("/")
-    public getAll(_: any, ctx: any) {
+    public getAll(_: CountryEntity, ctx: any): CountryEntity[] {
         try {
             this.checkPermissions("read");
             const options: CountryEntityOptions = {
@@ -26,40 +27,44 @@ class CountryController {
         } catch (error: any) {
             this.handleError(error);
         }
+        return [];
     }
 
     @Post("/")
-    public create(entity: any) {
+    public create(entity: CountryEntity): CountryEntity {
         try {
             this.checkPermissions("write");
             this.validateEntity(entity);
-            entity.Id = this.repository.create(entity);
+            entity.Id = this.repository.create(entity) as number;
             response.setHeader("Content-Location", "/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.controller.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
             this.handleError(error);
         }
+        return new CountryEntity();
     }
 
     @Get("/count")
-    public count() {
+    public count(): number {
         try {
             this.checkPermissions("read");
-            return { count: this.repository.count() };
+            return this.repository.count();
         } catch (error: any) {
             this.handleError(error);
         }
+        return -1;
     }
 
     @Post("/count")
-    public countWithFilter(filter: any) {
+    public countWithFilter(filter: any): number {
         try {
             this.checkPermissions("read");
-            return { count: this.repository.count(filter) };
+            return this.repository.count(filter);
         } catch (error: any) {
             this.handleError(error);
         }
+        return -1;
     }
 
     @Post("/search")
@@ -73,7 +78,7 @@ class CountryController {
     }
 
     @Get("/:id")
-    public getById(_: any, ctx: any) {
+    public getById(_: any, ctx: any): CountryEntity {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
@@ -89,10 +94,11 @@ class CountryController {
         } catch (error: any) {
             this.handleError(error);
         }
+        return new CountryEntity();
     }
 
     @Put("/:id")
-    public update(entity: any, ctx: any) {
+    public update(entity: CountryEntity, ctx: any): CountryEntity {
         try {
             this.checkPermissions("write");
             entity.Id = ctx.pathParameters.id;
@@ -102,6 +108,7 @@ class CountryController {
         } catch (error: any) {
             this.handleError(error);
         }
+        return new CountryEntity();
     }
 
     @Delete("/:id")
@@ -140,7 +147,7 @@ class CountryController {
         }
     }
 
-    private validateEntity(entity: any): void {
+    private validateEntity(entity: CountryEntity): void {
         if (entity.Name?.length > 255) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [255] characters`);
         }
