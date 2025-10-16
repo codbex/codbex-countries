@@ -1,69 +1,9 @@
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
-import { store } from "sdk/db";
+import { store, Options } from "sdk/db";
 import { translator } from "sdk/db";
 import { EntityConstructor } from "sdk/db";
 import { CountryEntity } from "./CountryEntity";
-
-export interface CountryEntityOptions {
-    $filter?: {
-        equals?: {
-            Id?: number | number[];
-            Name?: string | string[];
-            Code2?: string | string[];
-            Code3?: string | string[];
-            Numeric?: string | string[];
-        };
-        notEquals?: {
-            Id?: number | number[];
-            Name?: string | string[];
-            Code2?: string | string[];
-            Code3?: string | string[];
-            Numeric?: string | string[];
-        };
-        contains?: {
-            Id?: number;
-            Name?: string;
-            Code2?: string;
-            Code3?: string;
-            Numeric?: string;
-        };
-        greaterThan?: {
-            Id?: number;
-            Name?: string;
-            Code2?: string;
-            Code3?: string;
-            Numeric?: string;
-        };
-        greaterThanOrEqual?: {
-            Id?: number;
-            Name?: string;
-            Code2?: string;
-            Code3?: string;
-            Numeric?: string;
-        };
-        lessThan?: {
-            Id?: number;
-            Name?: string;
-            Code2?: string;
-            Code3?: string;
-            Numeric?: string;
-        };
-        lessThanOrEqual?: {
-            Id?: number;
-            Name?: string;
-            Code2?: string;
-            Code3?: string;
-            Numeric?: string;
-        };
-    },
-    $select?: (keyof CountryEntity)[],
-    $sort?: string | (keyof CountryEntity)[],
-    $order?: 'ASC' | 'DESC',
-    $offset?: number,
-    $limit?: number,
-    $language?: string
-}
 
 export interface CountryEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
@@ -74,23 +14,22 @@ export interface CountryEntityEvent {
         column: string;
         value: string | number;
     }
-}
-
-export interface CountryUpdateEntityEvent extends CountryEntityEvent {
-    readonly previousEntity: CountryEntity;
+    readonly previousEntity?: CountryEntity;
 }
 
 export class CountryRepository {
 
-    public findAll(options: CountryEntityOptions = {}): CountryEntity[] {
-        let list = store.list((CountryEntity as EntityConstructor).$entity_name, { 'conditions': [], 'limit': options.$limit || 20, 'offset': options.$offset || 0 });
-        translator.translateList(list, options.$language, (CountryEntity as EntityConstructor).$table_name);
+    public findAll(options: Options = {}): CountryEntity[] {
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>> findAll:" + JSON.stringify(options));
+        let list = store.list((CountryEntity as EntityConstructor).$entity_name, options);
+        translator.translateList(list, options.language, (CountryEntity as EntityConstructor).$table_name);
         return list;
     }
 
-    public findById(id: number, options: CountryEntityOptions = {}): CountryEntity | undefined {
+    public findById(id: number, options: Options = {}): CountryEntity | undefined {
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>> findById:" + JSON.stringify(options));
         const entity = store.get((CountryEntity as EntityConstructor).$entity_name, id);
-        translator.translateEntity(entity, id, options.$language, (CountryEntity as EntityConstructor).$table_name);
+        translator.translateEntity(entity, id, options.language, (CountryEntity as EntityConstructor).$table_name);
         return entity ?? undefined;
     }
 
@@ -110,7 +49,7 @@ export class CountryRepository {
     }
 
     public update(entity: CountryEntity): void {
-        const previousEntity = this.findById(entity.Id);
+        const previousEntity = this.findById(entity.Id as number);
         store.update((CountryEntity as EntityConstructor).$entity_name, entity);
         this.triggerEvent({
             operation: "update",
@@ -155,11 +94,12 @@ export class CountryRepository {
         });
     }
 
-    public count(options?: CountryEntityOptions): number {
-        return store.count((CountryEntity as EntityConstructor).$entity_name, { 'conditions': [], 'limit': options?.$limit || 20, 'offset': options?.$offset || 0 });
+    public count(options?: Options): number {
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>> count:" + JSON.stringify(options));
+        return store.count((CountryEntity as EntityConstructor).$entity_name, options);
     }
 
-    private async triggerEvent(data: CountryEntityEvent | CountryUpdateEntityEvent) {
+    private async triggerEvent(data: CountryEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-countries-Settings-Country", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

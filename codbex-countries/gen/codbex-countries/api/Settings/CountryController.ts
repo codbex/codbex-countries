@@ -3,8 +3,9 @@ import { Extensions } from "sdk/extensions"
 import { user } from "sdk/security"
 import { ForbiddenError, ValidationError } from "sdk/http/errors";
 import { HttpUtils } from "sdk/http/utils";
+import { Options } from "sdk/db";
 import { CountryEntity } from "../../data/Settings/CountryEntity";
-import { CountryRepository, CountryEntityOptions } from "../../data/Settings/CountryRepository";
+import { CountryRepository } from "../../data/Settings/CountryRepository";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-countries-Settings-Country", ["validate"]);
 
@@ -17,10 +18,10 @@ class CountryController {
     public getAll(_: CountryEntity, ctx: any): CountryEntity[] {
         try {
             this.checkPermissions("read");
-            const options: CountryEntityOptions = {
-                $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
-                $language: request.getLocale().slice(0, 2)
+            const options: Options = {
+                limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : 20,
+                offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : 0,
+                language: request.getLocale().slice(0, 2)
             };
 
             return this.repository.findAll(options);
@@ -36,7 +37,7 @@ class CountryController {
             this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity) as number;
-            response.setHeader("Content-Location", "/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.controller.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -60,7 +61,7 @@ class CountryController {
     public countWithFilter(filter: any): number {
         try {
             this.checkPermissions("read");
-            return this.repository.count(filter);
+            return this.repository.count(filter.$filter);
         } catch (error: any) {
             this.handleError(error);
         }
@@ -71,7 +72,7 @@ class CountryController {
     public search(filter: any) {
         try {
             this.checkPermissions("read");
-            return this.repository.findAll(filter);
+            return this.repository.findAll(filter.$filter);
         } catch (error: any) {
             this.handleError(error);
         }
@@ -82,8 +83,8 @@ class CountryController {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const options: CountryEntityOptions = {
-                $language: request.getLocale().slice(0, 2)
+            const options: Options = {
+                language: request.getLocale().slice(0, 2)
             };
             const entity = this.repository.findById(id, options);
             if (entity) {
@@ -148,16 +149,16 @@ class CountryController {
     }
 
     private validateEntity(entity: CountryEntity): void {
-        if (entity.Name?.length > 255) {
+        if (entity.Name!.length > 255) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [255] characters`);
         }
-        if (entity.Code2?.length > 2) {
+        if (entity.Code2!.length > 2) {
             throw new ValidationError(`The 'Code2' exceeds the maximum length of [2] characters`);
         }
-        if (entity.Code3?.length > 3) {
+        if (entity.Code3!.length > 3) {
             throw new ValidationError(`The 'Code3' exceeds the maximum length of [3] characters`);
         }
-        if (entity.Numeric?.length > 3) {
+        if (entity.Numeric!.length > 3) {
             throw new ValidationError(`The 'Numeric' exceeds the maximum length of [3] characters`);
         }
         for (const next of validationModules) {
