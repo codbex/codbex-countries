@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { CountryRepository, CountryEntityOptions } from "../../dao/Settings/CountryRepository";
+import { CountryRepository, CountryEntityOptions } from "../../data/Settings/CountryRepository";
 import { user } from "sdk/security"
 import { ForbiddenError, ValidationError } from "sdk/http/errors";
 import { HttpUtils } from "sdk/http/utils";
