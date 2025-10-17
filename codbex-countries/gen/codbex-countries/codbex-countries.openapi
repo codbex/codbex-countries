@@ -11,7 +11,7 @@ servers:
 tags:
   - name: Settings
 paths:
-  /codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts:
+  /codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts:
     get:
       summary: List Country
       parameters:
@@ -95,7 +95,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts/{id}:
+  /codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/{id}:
     get:
       summary: Get Country by Id
       parameters:
@@ -214,7 +214,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts/count:
+  /codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/count:
     get:
       summary: Count the number of Country
       tags:
@@ -330,7 +330,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts/search:
+  /codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/search:
     post:
       summary: Search Country by CountryFilterOptions
       tags:
