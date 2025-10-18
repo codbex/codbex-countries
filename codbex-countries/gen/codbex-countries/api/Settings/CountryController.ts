@@ -4,7 +4,7 @@ import { user } from "sdk/security"
 import { ForbiddenError, ValidationError } from "sdk/http/errors";
 import { HttpUtils } from "sdk/http/utils";
 import { Options } from "sdk/db";
-import { CountryEntity } from "/codbex-countries/gen/codbex-countries/data/Settings/CountryEntity";
+import { CountryEntity } from "../../data/Settings/CountryEntity";
 import { CountryRepository } from "../../data/Settings/CountryRepository";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-countries-Settings-Country", ["validate"]);
