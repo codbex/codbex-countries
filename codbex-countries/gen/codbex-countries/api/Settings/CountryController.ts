@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
+import { Controller, Get, Post, Put, Delete, Documentation, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { user } from "sdk/security"
 import { ForbiddenError, ValidationError } from "sdk/http/errors";
@@ -10,11 +10,13 @@ import { CountryRepository } from "../../data/Settings/CountryRepository";
 const validationModules = await Extensions.loadExtensionModules("codbex-countries-Settings-Country", ["validate"]);
 
 @Controller
+@Documentation("My CountryController")
 class CountryController {
 
     private readonly repository = new CountryRepository();
 
     @Get("/")
+    @Documentation("My Get All")
     public getAll(_: CountryEntity, ctx: any): CountryEntity[] {
         try {
             this.checkPermissions("read");
@@ -32,6 +34,7 @@ class CountryController {
     }
 
     @Post("/")
+    @Documentation("My Create")
     public create(entity: CountryEntity): CountryEntity {
         try {
             this.checkPermissions("write");
