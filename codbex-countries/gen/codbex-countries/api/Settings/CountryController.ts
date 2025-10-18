@@ -1,85 +1,93 @@
-import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
+import { Controller, Get, Post, Put, Delete, Documentation, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { CountryRepository, CountryEntityOptions } from "../../dao/Settings/CountryRepository";
 import { user } from "sdk/security"
-import { ForbiddenError } from "../utils/ForbiddenError";
-import { ValidationError } from "../utils/ValidationError";
-import { HttpUtils } from "../utils/HttpUtils";
+import { ForbiddenError, ValidationError } from "sdk/http/errors";
+import { HttpUtils } from "sdk/http/utils";
+import { Options } from "sdk/db";
+import { CountryEntity } from "../../data/Settings/CountryEntity";
+import { CountryRepository } from "../../data/Settings/CountryRepository";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-countries-Settings-Country", ["validate"]);
 
 @Controller
-class CountryService {
+@Documentation("My CountryController")
+class CountryController {
 
     private readonly repository = new CountryRepository();
 
     @Get("/")
-    public getAll(_: any, ctx: any) {
+    @Documentation("My Get All")
+    public getAll(_: CountryEntity, ctx: any): CountryEntity[] {
         try {
             this.checkPermissions("read");
-            const options: CountryEntityOptions = {
-                $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
-                $language: request.getLocale().slice(0, 2)
+            const options: Options = {
+                limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : 20,
+                offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : 0,
+                language: request.getLocale().slice(0, 2)
             };
 
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);
         }
+        return [];
     }
 
     @Post("/")
-    public create(entity: any) {
+    @Documentation("My Create")
+    public create(entity: CountryEntity): CountryEntity {
         try {
             this.checkPermissions("write");
             this.validateEntity(entity);
-            entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts/" + entity.Id);
+            entity.Id = this.repository.create(entity) as number;
+            response.setHeader("Content-Location", "/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
             this.handleError(error);
         }
+        return new CountryEntity();
     }
 
     @Get("/count")
-    public count() {
+    public count(): number {
         try {
             this.checkPermissions("read");
-            return { count: this.repository.count() };
+            return this.repository.count();
         } catch (error: any) {
             this.handleError(error);
         }
+        return -1;
     }
 
     @Post("/count")
-    public countWithFilter(filter: any) {
+    public countWithFilter(filter: any): number {
         try {
             this.checkPermissions("read");
-            return { count: this.repository.count(filter) };
+            return this.repository.count(filter.$filter);
         } catch (error: any) {
             this.handleError(error);
         }
+        return -1;
     }
 
     @Post("/search")
     public search(filter: any) {
         try {
             this.checkPermissions("read");
-            return this.repository.findAll(filter);
+            return this.repository.findAll(filter.$filter);
         } catch (error: any) {
             this.handleError(error);
         }
     }
 
     @Get("/:id")
-    public getById(_: any, ctx: any) {
+    public getById(id: number, ctx: any): CountryEntity[] {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const options: CountryEntityOptions = {
-                $language: request.getLocale().slice(0, 2)
+            const options: Options = {
+                language: request.getLocale().slice(0, 2)
             };
             const entity = this.repository.findById(id, options);
             if (entity) {
@@ -90,10 +98,11 @@ class CountryService {
         } catch (error: any) {
             this.handleError(error);
         }
+        return new CountryEntity();
     }
 
     @Put("/:id")
-    public update(entity: any, ctx: any) {
+    public update(entity: CountryEntity, ctx: any): CountryEntity {
         try {
             this.checkPermissions("write");
             entity.Id = ctx.pathParameters.id;
@@ -103,6 +112,7 @@ class CountryService {
         } catch (error: any) {
             this.handleError(error);
         }
+        return new CountryEntity();
     }
 
     @Delete("/:id")
@@ -141,17 +151,17 @@ class CountryService {
         }
     }
 
-    private validateEntity(entity: any): void {
-        if (entity.Name?.length > 255) {
+    private validateEntity(entity: CountryEntity): void {
+        if (entity.Name!.length > 255) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [255] characters`);
         }
-        if (entity.Code2?.length > 2) {
+        if (entity.Code2!.length > 2) {
             throw new ValidationError(`The 'Code2' exceeds the maximum length of [2] characters`);
         }
-        if (entity.Code3?.length > 3) {
+        if (entity.Code3!.length > 3) {
             throw new ValidationError(`The 'Code3' exceeds the maximum length of [3] characters`);
         }
-        if (entity.Numeric?.length > 3) {
+        if (entity.Numeric!.length > 3) {
             throw new ValidationError(`The 'Numeric' exceeds the maximum length of [3] characters`);
         }
         for (const next of validationModules) {

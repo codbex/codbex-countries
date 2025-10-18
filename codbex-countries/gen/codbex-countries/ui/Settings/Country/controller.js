@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts';
 	}])
 	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -31,7 +31,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
+				title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				maxWidth: action.maxWidth,
 				maxHeight: action.maxHeight,
@@ -42,7 +42,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
+				title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id
@@ -60,18 +60,24 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		resetPagination();
 
 		//-----------------Events-------------------//
-		Dialogs.addMessageListener({ topic: 'codbex-countries.Settings.Country.entityCreated', handler: () => {
-			$scope.loadPage($scope.dataPage, $scope.filter);
-		}});
-		Dialogs.addMessageListener({ topic: 'codbex-countries.Settings.Country.entityUpdated', handler: () => {
-			$scope.loadPage($scope.dataPage, $scope.filter);
-		}});
-		Dialogs.addMessageListener({ topic: 'codbex-countries.Settings.Country.entitySearch', handler: (data) => {
-			resetPagination();
-			$scope.filter = data.filter;
-			$scope.filterEntity = data.entity;
-			$scope.loadPage($scope.dataPage, $scope.filter);
-		}});
+		Dialogs.addMessageListener({
+			topic: 'codbex-countries.Settings.Country.entityCreated', handler: () => {
+				$scope.loadPage($scope.dataPage, $scope.filter);
+			}
+		});
+		Dialogs.addMessageListener({
+			topic: 'codbex-countries.Settings.Country.entityUpdated', handler: () => {
+				$scope.loadPage($scope.dataPage, $scope.filter);
+			}
+		});
+		Dialogs.addMessageListener({
+			topic: 'codbex-countries.Settings.Country.entitySearch', handler: (data) => {
+				resetPagination();
+				$scope.filter = data.filter;
+				$scope.filterEntity = data.entity;
+				$scope.loadPage($scope.dataPage, $scope.filter);
+			}
+		});
 		//-----------------Events-------------------//
 
 		$scope.loadPage = (pageNumber, filter) => {

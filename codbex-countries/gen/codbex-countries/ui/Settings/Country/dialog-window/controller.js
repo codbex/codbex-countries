@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
