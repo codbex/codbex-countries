@@ -14,6 +14,7 @@
       "roleWrite": "codbex-countries.Countries.CountryFullAccess"
     }
   ],
+  "tprefix": "codbex-countries-model",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
@@ -32,7 +33,6 @@
       "role": ""
     }
   },
-  "tprefix": "codbex-countries-model",
   "models": [
     {
       "properties": [
@@ -55,6 +55,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -79,6 +80,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -105,6 +107,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Code2",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -131,6 +134,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Code3",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -157,6 +161,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Numeric",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
