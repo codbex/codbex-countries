@@ -1,24 +1,16 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://codbex.com",
-  "title": "Countries Management Module",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Countries management module",
   "description": "Managing countries data",
-  "dataSource": "DefaultDB",
-  "fileName": "codbex-countries",
-  "genFolderName": "codbex-countries",
-  "roles": [
-    {
-      "entityName": "Country",
-      "roleRead": "codbex-countries.Countries.CountryReadOnly",
-      "roleWrite": "codbex-countries.Countries.CountryFullAccess"
-    }
-  ],
-  "tprefix": "codbex-countries-model",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
-  "templateId": "template-application-angular/template/template.js",
+  "templateId": "template-application-angular-v2/template/template.js",
+  "fileName": "codbex-countries",
+  "genFolderName": "codbex-countries",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -33,6 +25,14 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Country",
+      "roleRead": "codbex-countries.Countries.CountryReadOnly",
+      "roleWrite": "codbex-countries.Countries.CountryFullAccess"
+    }
+  ],
+  "tprefix": "codbex-countries-model",
   "models": [
     {
       "properties": [
