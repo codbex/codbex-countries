@@ -21,36 +21,31 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Name) {
-			filter.$filter.contains.Name = entity.Name;
+			const condition = { propertyName: 'Name', operator: 'LIKE', value: `%${entity.Name}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Code2) {
-			filter.$filter.contains.Code2 = entity.Code2;
+			const condition = { propertyName: 'Code2', operator: 'LIKE', value: `%${entity.Code2}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Code3) {
-			filter.$filter.contains.Code3 = entity.Code3;
+			const condition = { propertyName: 'Code3', operator: 'LIKE', value: `%${entity.Code3}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Numeric) {
-			filter.$filter.contains.Numeric = entity.Numeric;
+			const condition = { propertyName: 'Numeric', operator: 'LIKE', value: `%${entity.Numeric}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-countries.Settings.Country.entitySearch', data: {
 			entity: entity,
