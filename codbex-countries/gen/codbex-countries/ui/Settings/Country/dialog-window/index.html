@@ -31,7 +31,7 @@
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Name"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="20.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-countries:codbex-countries-model.messages.inputEnter' | t:{'name':'$t(codbex-countries:codbex-countries-model.t.COUNTRY_NAME)'} }}">
@@ -52,7 +52,7 @@
 	                                state="{{ forms.details['Code2'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Code2"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="2.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-countries:codbex-countries-model.messages.inputEnter' | t:{'name':'$t(codbex-countries:codbex-countries-model.t.COUNTRY_CODE2)'} }}">
@@ -73,7 +73,7 @@
 	                                state="{{ forms.details['Code3'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Code3"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="3.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-countries:codbex-countries-model.messages.inputEnter' | t:{'name':'$t(codbex-countries:codbex-countries-model.t.COUNTRY_CODE3)'} }}">
@@ -94,7 +94,7 @@
 	                                state="{{ forms.details['Numeric'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Numeric"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="3.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-countries:codbex-countries-model.messages.inputEnter' | t:{'name':'$t(codbex-countries:codbex-countries-model.t.COUNTRY_NUMERIC)'} }}">

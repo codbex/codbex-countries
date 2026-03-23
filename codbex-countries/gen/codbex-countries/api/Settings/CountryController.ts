@@ -44,7 +44,7 @@ class CountryController {
             this.checkPermissions('write');
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity) as any;
-            response.setHeader('Content-Location', '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryService.ts/' + entity.Id);
+            response.setHeader('Content-Location', '/services/ts/codbex-countries/gen/codbex-countries/api/Settings/CountryController.ts/' + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
