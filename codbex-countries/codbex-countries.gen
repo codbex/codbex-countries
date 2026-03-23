@@ -4,13 +4,21 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Countries Management Module",
   "description": "Managing Countries Data",
+  "fileName": "codbex-countries",
+  "genFolderName": "codbex-countries",
+  "dataSource": "DefaultDB",
+  "roles": [
+    {
+      "entityName": "Country",
+      "roleRead": "codbex-countries.Countries.CountryReadOnly",
+      "roleWrite": "codbex-countries.Countries.CountryFullAccess"
+    }
+  ],
+  "tprefix": "codbex-countries-model",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
   "templateId": "template-application-angular-v2/template/template.js",
-  "fileName": "codbex-countries",
-  "genFolderName": "codbex-countries",
-  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -25,18 +33,11 @@
       "role": ""
     }
   },
-  "roles": [
-    {
-      "entityName": "Country",
-      "roleRead": "codbex-countries.Countries.CountryReadOnly",
-      "roleWrite": "codbex-countries.Countries.CountryFullAccess"
-    }
-  ],
-  "tprefix": "codbex-countries-model",
   "models": [
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "COUNTRY_ID",
           "dataNullable": true,
@@ -62,6 +63,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "255",
           "dataName": "COUNTRY_NAME",
           "dataNullable": false,
@@ -90,6 +92,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "2",
           "dataName": "COUNTRY_CODE2",
           "dataNullable": false,
@@ -118,6 +121,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "3",
           "dataName": "COUNTRY_CODE3",
           "dataNullable": false,
@@ -146,6 +150,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "3",
           "dataName": "COUNTRY_NUMERIC",
           "dataNullable": false,

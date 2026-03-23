@@ -4,6 +4,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "COUNTRY_ID",
                         "dataNullable": "true",
@@ -18,6 +19,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "255",
                         "dataName": "COUNTRY_NAME",
                         "dataNullable": "false",
@@ -32,6 +34,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "2",
                         "dataName": "COUNTRY_CODE2",
                         "dataNullable": "false",
@@ -46,6 +49,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "COUNTRY_CODE3",
                         "dataNullable": "false",
@@ -60,6 +64,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "COUNTRY_NUMERIC",
                         "dataNullable": "false",
@@ -90,7 +95,7 @@
                 "name": "Country",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "globe",
-                "perspectiveLabel": "Entities",
+                "perspectiveLabel": "Settings",
                 "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "990",
