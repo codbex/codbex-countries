@@ -1,11 +1,30 @@
-# codbex-countries
-Countries Application Module
+# <img src="https://www.codbex.com/icon.svg" width="32" style="vertical-align: middle;"> codbex-countries
 
-### Model
+## 📖 Table of Contents
+* [🗺️ Entity Data Model (EDM)](#️-entity-data-model-edm)
+* [🧩 Core Entities](#-core-entities)
+* [🐳 Local Development with Docker](#-local-development-with-docker)
 
-![model](images/countries-model.png)
+## 🗺️ Entity Data Model (EDM)
 
-## Local Development with Docker
+![model](images/model.png)
+
+## 🧩 Core Entities
+
+### Entity: `Country`
+
+| Field   | Type     | Details                       | Description                                      |
+|---------| -------- |-------------------------------| ------------------------------------------------ |
+| Id      | INTEGER  | PK, Identity                  | Unique identifier for the country.              |
+| Name    | VARCHAR  | Length: 255, Unique, Not Null | Name of the country.                            |
+| Code2   | CHAR     | Length: 2, Unique, Not Null   | Two-character country code (ISO Alpha-2).       |
+| Code3   | CHAR     | Length: 3, Unique, Not Null   | Three-character country code (ISO Alpha-3).     |
+| Numeric | CHAR     | Length: 3, Unique, Not Null   | Numeric country code (ISO Numeric).             |
+## 🔗 Sample Data Modules
+
+- [codbex-countries-data](https://github.com/codbex/codbex-countries-data)
+
+## 🐳 Local Development with Docker
 
 When running this project inside the codbex Atlas Docker image, you must provide authentication for installing dependencies from GitHub Packages.
 1. Create a GitHub Personal Access Token (PAT) with `read:packages` scope.
