@@ -3,6 +3,7 @@
 ## 📖 Table of Contents
 * [🗺️ Entity Data Model (EDM)](#️-entity-data-model-edm)
 * [🧩 Core Entities](#-core-entities)
+* [🔗 Sample Data Modules](#-sample-data-modules)
 * [🐳 Local Development with Docker](#-local-development-with-docker)
 
 ## 🗺️ Entity Data Model (EDM)
