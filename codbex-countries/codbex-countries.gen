@@ -1,15 +1,17 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://www.codbex.com",
-  "title": "Country Management Application",
-  "description": "Managing country data",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Countries Management Module",
+  "description": "Managing Countries Data",
   "projectName": "codbex-countries",
   "workspaceName": "workspace",
   "filePath": "codbex-countries.model",
-  "templateId": "template-application-angular-v2/template/template.js",
+  "templateId": "template-application-angular-java/template/template.js",
   "fileName": "codbex-countries",
   "genFolderName": "codbex-countries",
+  "javaRuntime": true,
+  "javaGenFolderName": "codbex_countries",
   "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
@@ -60,6 +62,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
           "inputRule": ""
         },
         {
@@ -87,6 +90,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -116,6 +120,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 2,
           "inputRule": ""
@@ -145,6 +150,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 3,
           "inputRule": ""
@@ -174,6 +180,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 3,
           "inputRule": ""
@@ -204,6 +211,7 @@
       "tooltip": "Country",
       "type": "SETTING",
       "dataSource": "DefaultDB",
+      "javaPerspectiveName": "settings",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
