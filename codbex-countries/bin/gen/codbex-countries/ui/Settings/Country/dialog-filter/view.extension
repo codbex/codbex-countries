@@ -1,0 +1,6 @@
+{
+    "module": "codbex-countries/gen/codbex-countries/ui/Settings/Country/dialog-filter/view.js",
+    "extensionPoint": "application-windows",
+    "description": "codbex-countries - Application Dialog Window",
+    "role": "codbex-countries.Countries.CountryReadOnly,codbex-countries.Countries.CountryFullAccess"
+}

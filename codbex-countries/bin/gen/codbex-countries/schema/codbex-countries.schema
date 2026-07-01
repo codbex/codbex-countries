@@ -1,0 +1,44 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_COUNTRY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "COUNTRY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "unique": true,
+                        "name": "COUNTRY_NAME"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 2,
+                        "unique": true,
+                        "name": "COUNTRY_CODE2"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "unique": true,
+                        "name": "COUNTRY_CODE3"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "unique": true,
+                        "name": "COUNTRY_NUMERIC"
+                    }
+                ]
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

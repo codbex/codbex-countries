@@ -1,0 +1,113 @@
+{
+    "model": {
+        "entities": [
+            {
+                "properties": [
+                    {
+                        "auditType": "NONE",
+                        "dataAutoIncrement": "true",
+                        "dataName": "COUNTRY_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "Id",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataLength": "255",
+                        "dataName": "COUNTRY_NAME",
+                        "dataNullable": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "true",
+                        "description": "",
+                        "name": "Name",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "fd-col-md--4 fd-col--6",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataLength": "2",
+                        "dataName": "COUNTRY_CODE2",
+                        "dataNullable": "false",
+                        "dataType": "CHAR",
+                        "dataUnique": "true",
+                        "description": "",
+                        "name": "Code2",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataLength": "3",
+                        "dataName": "COUNTRY_CODE3",
+                        "dataNullable": "false",
+                        "dataType": "CHAR",
+                        "dataUnique": "true",
+                        "description": "",
+                        "name": "Code3",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataLength": "3",
+                        "dataName": "COUNTRY_NUMERIC",
+                        "dataNullable": "false",
+                        "dataType": "CHAR",
+                        "dataUnique": "true",
+                        "description": "",
+                        "name": "Numeric",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "fd-col-md--2 fd-col--3",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity Country",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_COUNTRY\"",
+                "dataName": "COUNTRY",
+                "dataQuery": "",
+                "description": "Manage entity Country",
+                "generateDefaultRoles": "true",
+                "generateReport": "false",
+                "icon": "globe",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "country",
+                "menuLabel": "Country",
+                "multilingual": "true",
+                "name": "Country",
+                "perspectiveHeader": "",
+                "perspectiveIcon": "globe",
+                "perspectiveLabel": "Settings",
+                "perspectiveName": "Settings",
+                "perspectiveNavId": "",
+                "perspectiveOrder": "990",
+                "perspectiveRole": "",
+                "roleRead": "codbex-countries.Countries.CountryReadOnly",
+                "roleWrite": "codbex-countries.Countries.CountryFullAccess",
+                "title": "Country",
+                "tooltip": "Country",
+                "type": "SETTING"
+            }
+        ],
+        "perspectives": [],
+        "navigations": []
+    }
+}

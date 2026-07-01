@@ -5,7 +5,6 @@ import gen.codbex_countries.data.settings.CountryRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class CountryController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Name", "Code2", "Code3", "Numeric");
 
-    @Inject
-    private CountryRepository repository;
+    private final CountryRepository repository;
+
+    public CountryController(CountryRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List Country")
